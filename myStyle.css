@@ -3,11 +3,11 @@
 }
 
 body  {
-    background-color: white;
+    background-color: #4d4d4d;
 }
 nav {
     background-color: purple;  
-    color: #4d4d4d;
+    color: white;
     padding: 0 10px 0;
 }
     nav ul {
