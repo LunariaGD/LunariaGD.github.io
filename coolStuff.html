@@ -12,15 +12,21 @@
 
             //This function will show a message, summarizing the information
             $("#ThatsMeButton").on("click", function () {
-            var color = $("#FavColor").val();
-            var s = "<p style='background-color:" + color + ";'>" 
-            + "I am " + $("#NickName").val() + ". "
-            + "I'm lucky with the number " + $("#LuckyNumber").val() + ". ";
-            + "Feed me " + $('input[name=Snack]:checked').val() + "!"
-            + " Here's what I think is cool: " + $("#Quote").val()
-            + "</p>";
-            alert(s);  //An 'alert' creates the message
-            });
+   var color = $("#FavColor").val();
+   var s = "<p style='background-color:" + color + ";'>" 
+      + "I am " + $("#NickName").val() + ". "
+      + "I'm lucky with the number " 
+      + $("#LuckyNumber").slider("value") + ". "
+      + "Feed me " + $('input[name=Snack]:checked').val() + "!"
+      + " Here's what I think is cool: " + $("#Quote").val()
+      + "</p>";
+
+   //put the contents of s into our div
+   $("#SummaryMe").html(s);
+   $("#SummaryMe").css('background-color', color);
+   //then open the dialog
+   $("#SummaryMe").dialog("open");
+}); 
             /* Uncomment this code to add a slider
 -            var handle = $('#SliderHandle');
 -            $('#LuckyNumber').slider({
