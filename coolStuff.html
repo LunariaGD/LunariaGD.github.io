@@ -12,32 +12,34 @@
 
             //This function will show a message, summarizing the information
             $("#ThatsMeButton").on("click", function () {
-                var s = "I am ";
-                s = s + $("#NickName").val() + ". ";
-                s = s  + "I'm lucky with the number " + $("#LuckyNumber").val() + ". ";
-                s =  s + "My favorite color is " + $("#FavColor").val() + ". ";
-                s = s + "Feed me " + $('input[name=Snack]:checked').val() + "! ";
-                s = s + "Here's what I think is cool: " + $("#Quote").val();
+            var color = $("#FavColor").val();
+            var s = "<p style='background-color:" + color + ";'>" 
+            + "I am " + $("#NickName").val() + ". "
+            + "I'm lucky with the number " 
+            + $("#LuckyNumber").slider("value") + ". "
+            + "Feed me " + $('input[name=Snack]:checked').val() + "!"
+            + " Here's what I think is cool: " + $("#Quote").val()
+            + "</p>";
 
-                alert(s);  //An 'alert' creates the message
-            });
-
-            /* Uncomment this code to add a slider
-            var handle = $('#SliderHandle');
-            $('#LuckyNumber').slider({
-                min: 1,
-                max: 25,
-                value: 1,
-                create: function() {
-                    handle.text($(this).slider("value"));
-                },
-                slide: function(event, ui) {
-                    handle.text( ui.value);
-                }
-            });
-            */
-
-        });
+   //put the contents of s into our div
+   $("#SummaryMe").html(s);
+   $("#SummaryMe").css('background-color', color);
+   //then open the dialog
+   $("#SummaryMe").dialog("open");
+}); 
+$(function () { 
+   $("#SummaryMe").dialog({ 
+      autoOpen: false, 
+      show: { 
+       effect: "bounce", 
+       duration: 2500 
+   }, 
+      hide: { 
+       effect: "explode", 
+       duration: 1000 
+      } 
+   }); 
+}); 
 
     </script>
 </head>
@@ -69,6 +71,7 @@
         <br /><br />
         <button id="ThatsMeButton">That's Me</button>
     </div>
+    <div id="SummaryMe" title="This is Me"></div>
  
 </section>
 </body>
