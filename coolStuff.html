@@ -20,6 +20,8 @@
       + "Feed me " + $('input[name=Snack]:checked').val() + "!"
       + " Here's what I think is cool: " + $("#Quote").val()
       + "</p>";
+      alert(s);  //An 'alert' creates the message
+            });
 
    //put the contents of s into our div
    $("#SummaryMe").html(s);
@@ -61,8 +63,7 @@ $(function () {
       } 
    }); 
 }); 
-alert(s);  //An 'alert' creates the message
-            });
+
     </script>
 </head>
 <body>
